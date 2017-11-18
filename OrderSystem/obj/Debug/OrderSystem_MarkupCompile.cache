@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-F:\WorkFiles\VisualStudio\UWP\OrderSystem\OrderSystem\obj\Debug\
+F:\10_WorkFiles\VisualStudio\UWP\OrderSystemV2.0\OrderSystem\obj\Debug\
 OrderSystem
 none
 false
 DEBUG;TRACE
-F:\WorkFiles\VisualStudio\UWP\OrderSystem\OrderSystem\App.xaml
+F:\10_WorkFiles\VisualStudio\UWP\OrderSystemV2.0\OrderSystem\App.xaml
 3-688121740
 
 91316392941
-151662053876
+15553617434
 FoodUIPage.xaml;MainWindow.xaml;PayWayPage.xaml;
 
 False

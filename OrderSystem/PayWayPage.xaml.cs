@@ -229,21 +229,39 @@ namespace OrderSystem
             BitmapImage img = new BitmapImage(uri);
             QrCodeImg.Source = img;
 
-            byte[] comBytes = new byte[6];
+            byte[] comBytes = new byte[4];
             comBytes[0] = orderinfo.HasRice ? (byte)1 : (byte)0;
-            comBytes[1] = orderinfo.HasSoup ? (byte)1 : (byte)0;
-            if (comTimes++ >= 1)
-            {
-                comBytes[5] = (byte)1;
-                comTimes = 0;
-            }
-            else comBytes[5] = (byte)0;
+            //comBytes[1] = orderinfo.HasSoup ? (byte)1 : (byte)0;
+            //if (comTimes++ >= 1)
+            //{
+            //    comBytes[5] = (byte)1;
+            //    comTimes = 0;
+            //}
+            //else comBytes[5] = (byte)0;
 
             List<int> nums = orderinfo.OrderNum;
             nums.Sort();
-            if (nums.Count >= 1) comBytes[2] = (byte)nums[0];
-            if (nums.Count >= 2) comBytes[3] = (byte)(nums[1] - nums[0]);
-            if (nums.Count >= 3) comBytes[4] = (byte)(nums[2] - nums[1]);
+            switch (nums.Count)
+            {
+                case 1:
+                    comBytes[3] = (byte)nums[0];
+                    break;
+                case 2:
+                    comBytes[2] = (byte)(nums[0]);
+                    comBytes[3] = (byte)(nums[1] - nums[0]);
+                    break;
+                case 3:
+                    comBytes[1] = (byte)(nums[0]);
+                    comBytes[2] = (byte)(nums[1] - nums[0]);
+                    comBytes[3] = (byte)(nums[2] - nums[1]);
+                    break;
+
+                default:
+                    break;
+            }
+            //if (nums.Count >= 3) comBytes[1] = (byte)(nums[0]);
+            //if (nums.Count >= 2) comBytes[2] = (byte)(nums[1] - nums[0]);
+            //if (nums.Count >= 1) comBytes[3] = (byte)(nums[2] - nums[1]);
 
             MainWindow.com.SetComOverCallBack(ComOver);
 
