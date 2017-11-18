@@ -42,49 +42,49 @@ namespace OrderSystem
 
             // 初始化 食物源
             //Image imgCtl = (Image) Food1.Children.OfType<Image>();
-            Uri uri = new Uri("http://120.27.24.207/orderm/images/红烧肉.jpg");
+            Uri uri = new Uri("http://andyhacker.cn/orderm/images/红烧肉.jpg");
             BitmapImage img = new BitmapImage(uri);
             FoodImage1.Source = img;
             FoodName1.Text = MyFoods[0].FoodName;
             FoodPrice1.Text = MyFoods[0].FoodPrice.ToString() + "元";
 
-            uri = new Uri("http://120.27.24.207/orderm/images/干煸豆角.jpg");
+            uri = new Uri("http://andyhacker.cn/orderm/images/干煸豆角.jpg");
             img = new BitmapImage(uri);
             FoodImage2.Source = img;
             FoodName2.Text = MyFoods[1].FoodName;
             FoodPrice2.Text = MyFoods[1].FoodPrice.ToString() + "元";
 
-            uri = new Uri("http://120.27.24.207/orderm/images/"+ MyFoods[2].FoodName + ".jpg");
+            uri = new Uri("http://andyhacker.cn/orderm/images/"+ MyFoods[2].FoodName + ".jpg");
             img = new BitmapImage(uri);
             FoodImage3.Source = img;
             FoodName3.Text = MyFoods[2].FoodName;
             FoodPrice3.Text = MyFoods[2].FoodPrice.ToString() + "元";
 
-            uri = new Uri("http://120.27.24.207/orderm/images/" + MyFoods[3].FoodName + ".jpg");
+            uri = new Uri("http://andyhacker.cn/orderm/images/" + MyFoods[3].FoodName + ".jpg");
             img = new BitmapImage(uri);
             FoodImage4.Source = img;
             FoodName4.Text = MyFoods[3].FoodName;
             FoodPrice4.Text = MyFoods[3].FoodPrice.ToString() + "元";
 
-            uri = new Uri("http://120.27.24.207/orderm/images/" + MyFoods[4].FoodName + ".jpg");
+            uri = new Uri("http://andyhacker.cn/orderm/images/" + MyFoods[4].FoodName + ".jpg");
             img = new BitmapImage(uri);
             FoodImage5.Source = img;
             FoodName5.Text = MyFoods[4].FoodName;
             FoodPrice5.Text = MyFoods[4].FoodPrice.ToString() + "元";
 
-            uri = new Uri("http://120.27.24.207/orderm/images/" + MyFoods[5].FoodName + ".jpg");
+            uri = new Uri("http://andyhacker.cn/orderm/images/" + MyFoods[5].FoodName + ".jpg");
             img = new BitmapImage(uri);
             FoodImage6.Source = img;
             FoodName6.Text = MyFoods[5].FoodName;
             FoodPrice6.Text = MyFoods[5].FoodPrice.ToString() + "元";
 
-            uri = new Uri("http://120.27.24.207/orderm/images/" + MyFoods[6].FoodName + ".jpg");
+            uri = new Uri("http://andyhacker.cn/orderm/images/" + MyFoods[6].FoodName + ".jpg");
             img = new BitmapImage(uri);
             FoodImage7.Source = img;
             FoodName7.Text = MyFoods[6].FoodName;
             FoodPrice7.Text = MyFoods[6].FoodPrice.ToString() + "元";
 
-            uri = new Uri("http://120.27.24.207/orderm/images/" + MyFoods[7].FoodName + ".jpg");
+            uri = new Uri("http://andyhacker.cn/orderm/images/" + MyFoods[7].FoodName + ".jpg");
             img = new BitmapImage(uri);
             FoodImage8.Source = img;
             FoodName8.Text = MyFoods[7].FoodName;

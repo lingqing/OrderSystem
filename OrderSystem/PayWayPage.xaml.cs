@@ -30,8 +30,8 @@ namespace OrderSystem
         private bool mComOvered = false;
         Frame mFrame = MainWindow.Current.MidFrame;
         private string outTradeNo;
-        private string wxQueryUrl = "http://120.27.24.207/orderm/wxpay/orderquery.php?out_trade_no=";
-        private string alQueryUrl = "http://120.27.24.207/orderm/alpay/f2fpay/orderquery.php?out_trade_no=";
+        private string wxQueryUrl = "http://andyhacker.cn/orderm/wxpay/orderquery.php?out_trade_no=";
+        private string alQueryUrl = "http://andyhacker.cn/orderm/alpay/f2fpay/orderquery.php?out_trade_no=";
         private OrderInfo orderinfo = MainWindow.orderInfo;
         private static int comTimes = 0;
         public PayWayPage()
@@ -60,7 +60,7 @@ namespace OrderSystem
 
         private async void AliPayBtn_Click(object sender, RoutedEventArgs e)
         {
-            string url = "http://120.27.24.207/orderm/alpay/alpayfromclient.php"; //post的地址  
+            string url = "http://andyhacker.cn/orderm/alpay/alpayfromclient.php"; //post的地址  
             var content = new FormUrlEncodedContent(new Dictionary<string, string>()
                     {
                         {"outTradeNo", outTradeNo },
@@ -89,13 +89,14 @@ namespace OrderSystem
                         //});
                         string qrUrl = response.Content.ReadAsStringAsync().Result;
 
-                        Uri uri = new Uri("http://120.27.24.207/orderm/wxpay/qrcode.php?data=" + qrUrl);
+                        Uri uri = new Uri("http://andyhacker.cn/orderm/wxpay/qrcode.php?data=" + qrUrl);
                         BitmapImage img = new BitmapImage(uri);
                         QrCodeImg.Source = img;
                         timer.Interval = new TimeSpan(0, 0, 2);
                         timer.Tick -= WxUpdatePayResult;
                         timer.Tick += AliUpdatePayResult;
                         timer.Start();
+                        ResultTxt.Text = "请扫码支付";
                     }
                     else
                     {
@@ -130,7 +131,7 @@ namespace OrderSystem
                         {
                             timer.Stop();
                             //ResultTxt.Text = "支付成功";
-                            //Uri uri = new Uri("http://120.27.24.207/orderm/wxpay/paysucceed.png");
+                            //Uri uri = new Uri("http://andyhacker.cn/orderm/wxpay/paysucceed.png");
                             //BitmapImage img = new BitmapImage(uri);
                             //QrCodeImg.Source = img;
                             ComWithOrderMac();
@@ -165,7 +166,7 @@ namespace OrderSystem
                     {
                         timer.Stop();
                         //ResultTxt.Text = "支付成功";
-                        //Uri uri = new Uri("http://120.27.24.207/orderm/wxpay/paysucceed.png");
+                        //Uri uri = new Uri("http://andyhacker.cn/orderm/wxpay/paysucceed.png");
                         //BitmapImage img = new BitmapImage(uri);
                         //QrCodeImg.Source = img;
                         ComWithOrderMac();
@@ -181,7 +182,7 @@ namespace OrderSystem
 
         private async void WxPayBtn_Click(object sender, RoutedEventArgs e)
         {
-            string url = "http://120.27.24.207/orderm/wxpay/wxpayfromclient.php"; //post的地址    
+            string url = "http://andyhacker.cn/orderm/wxpay/wxpayfromclient.php"; //post的地址    
             var content = new FormUrlEncodedContent(new Dictionary<string, string>()
                     {
                         {"outTradeNo", outTradeNo },
@@ -202,13 +203,14 @@ namespace OrderSystem
                     if (response.StatusCode.GetHashCode() == 200)
                     {
                         var qrUrl = response.Content.ReadAsStringAsync().Result;
-                        Uri uri = new Uri("http://120.27.24.207/orderm/wxpay/qrcode.php?data=" + qrUrl);
+                        Uri uri = new Uri("http://andyhacker.cn/orderm/wxpay/qrcode.php?data=" + qrUrl);
                         BitmapImage img = new BitmapImage(uri);
                         QrCodeImg.Source = img;
                         timer.Interval = new TimeSpan(0, 0, 2);
                         timer.Tick -= AliUpdatePayResult;
                         timer.Tick += WxUpdatePayResult;
                         timer.Start();
+                        ResultTxt.Text = "请扫码支付";
                     }
                     else
                     {
@@ -225,7 +227,7 @@ namespace OrderSystem
         private void ComWithOrderMac()
         {
             ResultTxt.Text = "支付成功,正在出菜...";
-            Uri uri = new Uri("http://120.27.24.207/orderm/wxpay/paysucceed.png");
+            Uri uri = new Uri("http://andyhacker.cn/orderm/wxpay/paysucceed.png");
             BitmapImage img = new BitmapImage(uri);
             QrCodeImg.Source = img;
 
